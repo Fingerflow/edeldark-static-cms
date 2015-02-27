@@ -1,0 +1,5 @@
+each post in contentful.posts
+  a.project
+    div.excerpt
+      img(src=post.thumb.fields.file.url + '?w=200')
+      h2= post.name
