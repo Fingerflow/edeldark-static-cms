@@ -4,8 +4,12 @@ autoprefixer = require 'autoprefixer-stylus'
 contentful   = require 'roots-contentful'
 jeet         = require 'jeet'
 slug         = require 'slug'
+marked       = require 'marked'
 
 module.exports =
+  locals: 
+    marked: marked
+
   ignores: ['readme.md', '**/layout.*', '**/_*', '.gitignore']
 
   stylus:
@@ -21,7 +25,7 @@ module.exports =
           name: 'posts'
           filters: {}
           template: 'views/_project.jade'
-          path: (e) -> "/post/#{slug(e.name).toLowerCase()}"
+          path: (e) -> "post/#{slug(e.name).toLowerCase()}"
         }
       ]
   ]
